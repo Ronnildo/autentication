@@ -1,4 +1,5 @@
 import 'package:autentication/app/login.dart';
+import 'package:autentication/app/repositorio/add_user.dart';
 import 'package:flutter/material.dart';
 
 class Register extends StatefulWidget {
@@ -15,6 +16,8 @@ class _RegisterState extends State<Register> {
 
   @override
   Widget build(BuildContext context) {
+    print(
+        "${_nomeController.text}, ${_emailController.text}, ${_passwordController.text}");
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
@@ -137,26 +140,10 @@ class _RegisterState extends State<Register> {
               const SizedBox(height: 150),
               Align(
                 alignment: const Alignment(0.90, 0.90),
-                child: Stack(
-                  alignment: Alignment.centerRight,
-                  children: [
-                    Container(
-                      width: 90,
-                      height: 90,
-                      decoration: const BoxDecoration(
-                          shape: BoxShape.circle, color:  Color(0xFFFCE38A),),
-                    ),
-                    TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        'Register',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 34,
-                        ),
-                      ),
-                    ),
-                  ],
+                child: AddUser(
+                  name: _nomeController.text,
+                  email: _emailController.text,
+                  password: _passwordController.text,
                 ),
               ),
               const SizedBox(height: 22),
@@ -169,12 +156,14 @@ class _RegisterState extends State<Register> {
                       child: TextButton(
                         onPressed: () {
                           Navigator.push(
-                            context, 
-                            MaterialPageRoute(builder: (context) => const Login(),),
-                          );                     
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Login(),
+                            ),
+                          );
                         },
                         child: const Text(
-                          'Login',                        
+                          'Login',
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 14,

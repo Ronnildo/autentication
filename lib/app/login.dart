@@ -76,6 +76,7 @@ class _LoginState extends State<Login> {
                     color: Colors.grey,
                     fontSize: 16,
                   ),
+                  hoverColor: Colors.grey,
                 ),
               ),
               Padding(
