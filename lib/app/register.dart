@@ -75,7 +75,7 @@ class _RegisterState extends State<Register> {
                       controller: _nomeController,
                       decoration: const InputDecoration(
                         hintText: "Name",
-                        contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
+                        contentPadding: EdgeInsets.fromLTRB(1, 16, 16, 16),
                         enabledBorder: UnderlineInputBorder(
                           borderSide: BorderSide(color: Colors.white),
                         ),
@@ -95,7 +95,7 @@ class _RegisterState extends State<Register> {
                       controller: _emailController,
                       decoration: const InputDecoration(
                         hintText: "E-mail",
-                        contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
+                        contentPadding: EdgeInsets.fromLTRB(1, 16, 32, 16),
                         enabledBorder: UnderlineInputBorder(
                           borderSide: BorderSide(color: Colors.white),
                         ),
@@ -116,7 +116,7 @@ class _RegisterState extends State<Register> {
                       controller: _passwordController,
                       decoration: const InputDecoration(
                         hintText: "Password",
-                        contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
+                        contentPadding: EdgeInsets.fromLTRB(1, 16, 32, 16),
                         enabledBorder: UnderlineInputBorder(
                           borderSide: BorderSide(color: Colors.white),
                         ),
@@ -158,7 +158,7 @@ class _RegisterState extends State<Register> {
                   ],
                 ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 22),
               Column(
                 children: [
                   // ignore: avoid_unnecessary_containers
@@ -168,10 +168,11 @@ class _RegisterState extends State<Register> {
                       child: TextButton(
                         onPressed: () {},
                         child: const Text(
-                          'Login',
+                          'Login',                        
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 14,
+                            decoration: TextDecoration.underline,
                           ),
                         ),
                       ),
