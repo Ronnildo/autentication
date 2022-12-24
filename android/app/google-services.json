@@ -7,7 +7,7 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:8802001040:android:6eb39fa71cf3620fa9f815",
+        "mobilesdk_app_id": "1:8802001040:android:7a74f736926cc70fa9f815",
         "android_client_info": {
           "package_name": "com.example.autentication"
         }
@@ -29,6 +29,13 @@
             {
               "client_id": "8802001040-1i5dmgegi9bnrbhiup0n5jv57irua02b.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "8802001040-sib694tpum3tuohv22fo3jrsqk1055jf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.autentication"
+              }
             }
           ]
         }

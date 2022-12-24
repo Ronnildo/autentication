@@ -9,7 +9,7 @@ void main() {
       debugShowCheckedModeBanner: false,
       title: "Autetication App",
       // modifica pra /register, mas quanto for da um git add muda pra /login
-      initialRoute: "/login",
+      initialRoute: "/register",
       routes: {
         "/register": (context) => const Register(),
         "/login": (context) => const Login(),
