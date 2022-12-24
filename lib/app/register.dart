@@ -97,6 +97,7 @@ class _RegisterState extends State<Register> {
                   ),
                   const SizedBox(height: 10),
                   TextField(
+                    obscureText: true,
                     keyboardType: TextInputType.visiblePassword,
                     controller: _passwordController,
                     decoration: const InputDecoration(
