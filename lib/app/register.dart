@@ -22,7 +22,7 @@ class _RegisterState extends State<Register> {
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.only(
-            top: 32,
+            top: 3,
             left: 24,
             right: 16,
           ),
@@ -36,144 +36,139 @@ class _RegisterState extends State<Register> {
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                alignment: Alignment.topLeft,
-                padding: const EdgeInsets.symmetric(
-                  vertical: 100,
-                  horizontal: 32,
+              const Padding(
+                padding: EdgeInsets.only(
+                  top: 5,
+                  bottom: 200,
                 ),
-                child: Column(
-                  // ignore: prefer_const_literals_to_create_immutables
+                child: Text(
+                  'Create\nAccount',
+                  style: TextStyle(
+                    fontSize: 50,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 55),
+              TextField(
+                keyboardType: TextInputType.name,
+                controller: _nomeController,
+                decoration: const InputDecoration(
+                  hintText: "Name",
+                  contentPadding: EdgeInsets.fromLTRB(1, 16, 16, 16),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
+                  enabled: true,
+                  hintStyle: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 35),
+              TextField(
+                keyboardType: TextInputType.emailAddress,
+                controller: _emailController,
+                decoration: const InputDecoration(
+                  hintText: "E-mail",
+                  contentPadding: EdgeInsets.fromLTRB(1, 16, 32, 16),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
+                  enabled: true,
+                  hintStyle: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 35),
+              TextField(
+                obscureText: true,
+                keyboardType: TextInputType.visiblePassword,
+                controller: _passwordController,
+                decoration: const InputDecoration(
+                  hintText: "Password",
+                  contentPadding: EdgeInsets.fromLTRB(1, 16, 32, 16),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
+                  enabled: true,
+                  hintStyle: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 135),
+              Padding(
+                padding: const EdgeInsets.only(
+                  top: 32.0,
+                  left: 270,
+                  bottom: 24,
+                ),
+                child: Stack(
+                  fit: StackFit.passthrough,
+                  alignment: Alignment.centerRight,
                   children: [
-                    const Positioned(
-                      child: Text(
-                        "Create",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 45,
-                          fontWeight: FontWeight.bold,
-                        ),
+                    Container(
+                      width: 80,
+                      height: 80,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFFCE38A),
+                        borderRadius: BorderRadius.circular(100),
                       ),
                     ),
-                    const Text(
-                      'Account',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 45,
-                        fontWeight: FontWeight.bold,
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        right: 22.0,
                       ),
-                    )
-                  ],
-                ),
-              ),
-              const SizedBox(height: 70),
-              Container(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    TextField(
-                      keyboardType: TextInputType.name,
-                      controller: _nomeController,
-                      decoration: const InputDecoration(
-                        hintText: "Name",
-                        contentPadding: EdgeInsets.fromLTRB(1, 16, 16, 16),
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.white),
-                        ),
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.white),
-                        ),
-                        enabled: true,
-                        hintStyle: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 35),
-                    TextField(
-                      keyboardType: TextInputType.emailAddress,
-                      controller: _emailController,
-                      decoration: const InputDecoration(
-                        hintText: "E-mail",
-                        contentPadding: EdgeInsets.fromLTRB(1, 16, 32, 16),
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.white),
-                        ),
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.white),
-                        ),
-                        enabled: true,
-                        hintStyle: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 35),
-                    TextField(
-                      obscureText: true,
-                      keyboardType: TextInputType.visiblePassword,
-                      controller: _passwordController,
-                      decoration: const InputDecoration(
-                        hintText: "Password",
-                        contentPadding: EdgeInsets.fromLTRB(1, 16, 32, 16),
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.white),
-                        ),
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.white),
-                        ),
-                        enabled: true,
-                        hintStyle: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 150),
-              Align(
-                alignment: const Alignment(0.90, 0.90),
-                child: AddUser(
-                  name: _nomeController.text,
-                  email: _emailController.text,
-                  password: _passwordController.text,
-                ),
-              ),
-              const SizedBox(height: 22),
-              Column(
-                children: [
-                  // ignore: avoid_unnecessary_containers
-                  Container(
-                    child: Align(
-                      alignment: const Alignment(-0.90, 0.90),
                       child: TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const Login(),
-                            ),
-                          );
-                        },
+                        onPressed: () {},
                         child: const Text(
-                          'Login',
+                          "Register",
                           style: TextStyle(
                             color: Colors.black,
-                            fontSize: 14,
-                            decoration: TextDecoration.underline,
+                            fontSize: 34,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
                     ),
-                  )
-                ],
+                  ],
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Login(),
+                    ),
+                  );
+                },
+                child: const Text(
+                  "Login",
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w700,
+                    decoration: TextDecoration.underline,
+                    decorationColor: Colors.grey,
+                  ),
+                ),
               ),
             ],
           ),
