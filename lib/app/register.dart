@@ -64,53 +64,74 @@ class _RegisterState extends State<Register> {
                   ],
                 ),
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  TextField(
-                    keyboardType: TextInputType.name,
-                    controller: _nomeController,
-                    decoration: const InputDecoration(
-                      hintText: "Name",
-                      contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
-                      enabled: true,
-                      hintStyle: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 16,
+              const SizedBox(height: 70),
+              Container(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    TextField(
+                      keyboardType: TextInputType.name,
+                      controller: _nomeController,
+                      decoration: const InputDecoration(
+                        hintText: "Name",
+                        contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white),
+                        ),
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white),
+                        ),
+                        enabled: true,
+                        hintStyle: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                        ),
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 10),
-                  TextField(
-                    keyboardType: TextInputType.emailAddress,
-                    controller: _emailController,
-                    decoration: const InputDecoration(
-                      hintText: "E-mail",
-                      contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
-                      enabled: true,
-                      hintStyle: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 16,
+                    const SizedBox(height: 35),
+                    TextField(
+                      keyboardType: TextInputType.emailAddress,
+                      controller: _emailController,
+                      decoration: const InputDecoration(
+                        hintText: "E-mail",
+                        contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white),
+                        ),
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white),
+                        ),
+                        enabled: true,
+                        hintStyle: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                        ),
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 10),
-                  TextField(
-                    obscureText: true,
-                    keyboardType: TextInputType.visiblePassword,
-                    controller: _passwordController,
-                    decoration: const InputDecoration(
-                      hintText: "Password",
-                      contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
-                      enabled: true,
-                      hintStyle: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 16,
+                    const SizedBox(height: 35),
+                    TextField(
+                      obscureText: true,
+                      keyboardType: TextInputType.visiblePassword,
+                      controller: _passwordController,
+                      decoration: const InputDecoration(
+                        hintText: "Password",
+                        contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white),
+                        ),
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white),
+                        ),
+                        enabled: true,
+                        hintStyle: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               const SizedBox(height: 150),
               Align(
@@ -119,10 +140,10 @@ class _RegisterState extends State<Register> {
                   alignment: Alignment.centerRight,
                   children: [
                     Container(
-                      width: 80,
+                      width: 90,
                       height: 90,
                       decoration: const BoxDecoration(
-                          shape: BoxShape.circle, color: Colors.yellow),
+                          shape: BoxShape.circle, color:  Color(0xFFFCE38A),),
                     ),
                     TextButton(
                       onPressed: () {},
@@ -130,14 +151,14 @@ class _RegisterState extends State<Register> {
                         'Register',
                         style: TextStyle(
                           color: Colors.black,
-                          fontSize: 40,
+                          fontSize: 34,
                         ),
                       ),
                     ),
                   ],
                 ),
               ),
-              const SizedBox(height: 150),
+              const SizedBox(height: 20),
               Column(
                 children: [
                   // ignore: avoid_unnecessary_containers
@@ -150,7 +171,7 @@ class _RegisterState extends State<Register> {
                           'Login',
                           style: TextStyle(
                             color: Colors.black,
-                            fontSize: 30,
+                            fontSize: 14,
                           ),
                         ),
                       ),
