@@ -104,6 +104,7 @@ class _RegisterState extends State<Register> {
             .then(
           (value) {
             print("Dados salvos com sucesso!");
+            limparCampo();
             Navigator.push(
               context,
               MaterialPageRoute(

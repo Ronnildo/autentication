@@ -32,6 +32,13 @@ class _LoginState extends State<Login> {
     );
   }
 
+  void limparCampo() {
+    setState(() {
+      _emailController.text = "";
+      _passwordController.text = "";
+    });
+  }
+
   autenticarUser() {
     setState(() {
       _email = _emailController.text;
@@ -78,7 +85,7 @@ class _LoginState extends State<Login> {
           userToken = token;
         });
       });
-      print(userToken);
+      limparCampo();
       Navigator.push(
         context,
         MaterialPageRoute(
