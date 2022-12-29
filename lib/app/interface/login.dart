@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'widgets/buttom_form.dart';
 import 'widgets/image_container.dart';
@@ -16,10 +17,8 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  final TextEditingController _emailController =
-      TextEditingController(text: "teste121@gmail.com");
-  final TextEditingController _passwordController =
-      TextEditingController(text: "123456");
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   String _msgError = "";
   String? _email;
   String? _password;
@@ -59,7 +58,12 @@ class _LoginState extends State<Login> {
     }
   }
 
+  String Idtoken(String getToken) {
+    return getToken;
+  }
+
   login(UserModel userModel) {
+    String userToken = "";
     FirebaseAuth auth = FirebaseAuth.instance;
     auth
         .signInWithEmailAndPassword(
@@ -67,17 +71,27 @@ class _LoginState extends State<Login> {
       password: userModel.password!,
     )
         .then((autentic) {
-      print(autentic.user!.getIdToken().then((token) => print(token)));
+      print(autentic.user!.getIdToken().then((token) {
+        userToken = token;
+      }));
+      print(autentic.user!.email);
       setState(() {
         _msgError = "";
       });
 
-      /* Navigator.push(
+      CollectionReference user = FirebaseFirestore.instance.collection("users")
+        ..doc(autentic.user!.uid);
+
+      Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => const MainScreen(),
+          builder: (context) => Home(
+            name: autentic.user!.displayName.toString(),
+            getIdToken: userToken,
+            email: autentic.user!.email.toString(),
+          ),
         ),
-      );*/
+      );
     }).catchError((onError) {
       setState(() {
         _msgError = onError.toString();
@@ -103,7 +117,7 @@ class _LoginState extends State<Login> {
             children: [
               const Padding(
                 padding: EdgeInsets.only(
-                  bottom: 280,
+                  bottom: 180,
                 ),
                 child: Text(
                   "Hello\nAgain!",
@@ -114,11 +128,14 @@ class _LoginState extends State<Login> {
                   ),
                 ),
               ),
-              InputFormData(
-                controller: _emailController,
-                text: "E-mail",
-                corText: Colors.grey,
-                ocultar: false,
+              Padding(
+                padding: const EdgeInsets.only(top: 50.0),
+                child: InputFormData(
+                  controller: _emailController,
+                  text: "E-mail",
+                  corText: Colors.grey,
+                  ocultar: false,
+                ),
               ),
               const SizedBox(
                 height: 32,
