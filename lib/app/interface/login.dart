@@ -101,7 +101,7 @@ class _LoginState extends State<Login> {
             children: [
               const Padding(
                 padding: EdgeInsets.only(
-                  bottom: 200,
+                  bottom: 180,
                 ),
                 child: Text(
                   "Hello\nAgain!",
@@ -112,11 +112,14 @@ class _LoginState extends State<Login> {
                   ),
                 ),
               ),
-              InputFormData(
-                controller: _emailController,
-                text: "E-mail",
-                corText: Colors.grey,
-                ocultar: false,
+              Padding(
+                padding: const EdgeInsets.only(top: 50.0),
+                child: InputFormData(
+                  controller: _emailController,
+                  text: "E-mail",
+                  corText: Colors.grey,
+                  ocultar: false,
+                ),
               ),
               const SizedBox(
                 height: 32,
