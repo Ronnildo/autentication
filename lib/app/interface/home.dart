@@ -89,37 +89,42 @@ class _HomeState extends State<Home> {
             ),
           ),
           Expanded(
-            child: Container(
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(60),
-                  topLeft: Radius.circular(60),
+            child: SingleChildScrollView(
+              child: Container(
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(60),
+                    topLeft: Radius.circular(60),
+                  ),
+                  color: Color.fromARGB(255, 28, 176, 187),
                 ),
-                color: Color.fromARGB(255, 28, 176, 187),
-              ),
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
-              child: Column(
-                // ignore: prefer_const_literals_to_create_immutables
-                children: [
-                  const SizedBox(height: 20),
-                  const SizedBox(height: 20),
-                  Text(
-                    widget.name,
-                    style: const TextStyle(
-                      fontSize: 25,
-                      color: Colors.white,
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+                child: Column(
+                  // ignore: prefer_const_literals_to_create_immutables
+                  children: [
+                    const SizedBox(height: 20),
+                    const SizedBox(height: 20),
+                    Text(
+                      widget.name,
+                      style: const TextStyle(
+                        fontSize: 30,
+                        color: Colors.white,
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 15),
-                  Text(
-                    widget.getIdToken,
-                    style: const TextStyle(
-                      fontSize: 12,
-                      color: Colors.white,
+                    const SizedBox(height: 15),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Text(
+                        widget.getIdToken,
+                        style: const TextStyle(
+                          fontSize: 18,
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           )
