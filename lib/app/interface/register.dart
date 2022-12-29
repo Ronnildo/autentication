@@ -88,7 +88,7 @@ class _RegisterState extends State<Register> {
     )
         .then(
       (autentic) {
-        auth.currentUser!.updateDisplayName(_name);
+        auth.currentUser!.updateDisplayName(userModel.name!);
         setState(
           () {
             _msgError = "Usuário Cadastrado!";
