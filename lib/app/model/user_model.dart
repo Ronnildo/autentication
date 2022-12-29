@@ -12,7 +12,6 @@ class UserModel {
   UserModel.fromJson(Map<String, dynamic> data) {
     name = data["name"];
     email = data["email"];
-    password = data["password"];
   }
 
   Map<String, dynamic> toJson() {

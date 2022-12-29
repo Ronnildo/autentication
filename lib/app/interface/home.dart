@@ -1,3 +1,5 @@
+import 'package:autentication/app/model/user_model.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import './login.dart';
@@ -6,7 +8,15 @@ import 'package:lottie/lottie.dart';
 // import 'package:flutter/src/widgets/framework.dart';
 
 class Home extends StatefulWidget {
-  const Home({super.key});
+  final String name;
+  final String getIdToken;
+  final String email;
+  const Home({
+    super.key,
+    required this.name,
+    required this.getIdToken,
+    required this.email,
+  });
 
   @override
   State<Home> createState() => _HomeState();
@@ -14,13 +24,10 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final _firebaseAuth = FirebaseAuth.instance;
-  String nome = '';
-  String email = '';
 
   @override
   void initState() {
     super.initState();
-    pegarUsuario();
   }
 
   @override
@@ -36,12 +43,21 @@ class _HomeState extends State<Home> {
               decoration: const BoxDecoration(
                 color: Color.fromARGB(255, 28, 176, 187),
               ),
-              accountName: const Text('Nome'),
-              accountEmail: const Text('Email'),
+              accountName: Text(
+                widget.name,
+                style: const TextStyle(fontSize: 16),
+              ),
+              accountEmail: Text(
+                widget.email,
+                style: const TextStyle(fontSize: 12),
+              ),
             ),
             ListTile(
               dense: true,
-              title: const Text('sair'),
+              title: const Text(
+                'Sair',
+                style: TextStyle(fontSize: 18),
+              ),
               trailing: const Icon(Icons.exit_to_app),
               onTap: () {
                 sair();
@@ -88,18 +104,18 @@ class _HomeState extends State<Home> {
                 children: [
                   const SizedBox(height: 20),
                   const SizedBox(height: 20),
-                  const Text(
-                    'nome',
-                    style: TextStyle(
+                  Text(
+                    widget.name,
+                    style: const TextStyle(
                       fontSize: 25,
                       color: Colors.white,
                     ),
                   ),
                   const SizedBox(height: 15),
-                  const Text(
-                    'token',
-                    style: TextStyle(
-                      fontSize: 25,
+                  Text(
+                    widget.getIdToken,
+                    style: const TextStyle(
+                      fontSize: 12,
                       color: Colors.white,
                     ),
                   ),
@@ -110,16 +126,6 @@ class _HomeState extends State<Home> {
         ],
       ),
     );
-  }
-
-  pegarUsuario() async {
-    User? usuario = await _firebaseAuth.currentUser;
-    if (usuario != null) {
-      setState(() {
-        nome = usuario.displayName!;
-        email = usuario.email!;
-      });
-    }
   }
 
   sair() async {
