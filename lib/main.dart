@@ -19,7 +19,6 @@ void main() async {
       routes: {
         "/register": (context) => const Register(),
         "/login": (context) => const Login(),
-        "/home": (context) => const Home(),
       },
     ),
   );

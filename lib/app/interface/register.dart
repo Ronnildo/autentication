@@ -88,12 +88,12 @@ class _RegisterState extends State<Register> {
     )
         .then(
       (autentic) {
+        auth.currentUser!.updateDisplayName(_name);
         setState(
           () {
             _msgError = "Usuário Cadastrado!";
           },
         );
-
         CollectionReference user = FirebaseFirestore.instance
             .collection("users")
           ..doc(autentic.user!.uid.toString());
