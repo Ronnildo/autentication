@@ -99,23 +99,25 @@ class _RegisterState extends State<Register> {
           ..doc(autentic.user!.uid.toString());
         user
             .add(
-              userModel.toJson(),
-            )
+          userModel.toJson(),
+        )
             .then(
-              (value) => print("Dados salvos com sucesso!"),
-            )
-            .catchError(
+          (value) {
+            print("Dados salvos com sucesso!");
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const Login(),
+              ),
+            );
+          },
+        ).catchError(
           (onError) {
-            print("Error: $onError");
+            setState(() {
+              _msgError = "Erro ao cadastrar usuário! Tente novamente.";
+            });
           },
         );
-
-        /*Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const MainScreen(),
-          ),
-        );*/
       },
     ).catchError(
       (onError) {
@@ -179,7 +181,10 @@ class _RegisterState extends State<Register> {
               ),
               Text(
                 _msgError,
-                style: const TextStyle(color: Colors.red),
+                style: const TextStyle(
+                  color: Colors.red,
+                  fontSize: 16,
+                ),
               ),
               const SizedBox(
                 height: 32,

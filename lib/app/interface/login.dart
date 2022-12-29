@@ -58,12 +58,8 @@ class _LoginState extends State<Login> {
     }
   }
 
-  String Idtoken(String getToken) {
-    return getToken;
-  }
-
   login(UserModel userModel) {
-    String userToken = "";
+    String? userToken = "";
     FirebaseAuth auth = FirebaseAuth.instance;
     auth
         .signInWithEmailAndPassword(
@@ -71,38 +67,40 @@ class _LoginState extends State<Login> {
       password: userModel.password!,
     )
         .then((autentic) {
-      print(autentic.user!.getIdToken().then((token) {
-        userToken = token;
-      }));
-      print(autentic.user!.email);
       setState(() {
         _msgError = "";
       });
 
       CollectionReference user = FirebaseFirestore.instance.collection("users")
         ..doc(autentic.user!.uid);
-
+      setState(() {
+        autentic.user!.getIdToken().then((token) {
+          userToken = token;
+        });
+      });
+      print(userToken);
       Navigator.push(
         context,
         MaterialPageRoute(
           builder: (context) => Home(
             name: autentic.user!.displayName.toString(),
-            getIdToken: userToken,
+            getIdToken: userToken.toString(),
             email: autentic.user!.email.toString(),
           ),
         ),
       );
     }).catchError((onError) {
       setState(() {
-        _msgError = onError.toString();
+        _msgError = "E-mail ou password incorreto.";
       });
     });
   }
 
   @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    autenticarUser();
   }
 
   @override
@@ -148,7 +146,10 @@ class _LoginState extends State<Login> {
               ),
               Text(
                 _msgError,
-                style: const TextStyle(color: Colors.red),
+                style: const TextStyle(
+                  color: Colors.red,
+                  fontSize: 16,
+                ),
               ),
               const SizedBox(
                 height: 20,
